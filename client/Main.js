@@ -2,42 +2,34 @@ import React, {Component} from 'react'
 import Sidebar from './Sidebar'
 import AlbumContainer from './AlbumContainer'
 import PlayerContainer from './PlayerContainer'
+import axios from 'axios'
 
 export default class Main extends Component {
   constructor() {
   	super();
   	this.state = {
-    albums: [
-      {
-	    "id": 1,
-	    "name": "No Dummy",
-	    "artworkUrl": "default-album.jpg",
-	    "artistId": 1,
-	    "artist": {
-	      "id": 1,
-	      "name": "The Crash Test Dummies"
-	    }
-	  },
-	  {
-	    "id": 2,
-	    "name": "I React to State",
-	    "artworkUrl": "default-album.jpg",
-	    "artistId": 1,
-	    "artist": {
-	      "id": 1,
-	      "name": "The Crash Test Dummies"
-	    }
-	  }
-    ]
+    albums: []
     }
   }
+
+  hi (){
+
+  }
+
+  componentDidMount(){
+  	axios.get('/api/albums')
+  	.then(response=> {
+  	  console.log(response)
+  	  this.setState({albums: response.data})
+  	});
+  }
+
   render () {
     return (
      <div id='main' className='row container'>
       	<Sidebar />
       	<AlbumContainer albums={this.state.albums}/>
       	<PlayerContainer />
-      	{console.log(albums)}
      </div>
     )
   }

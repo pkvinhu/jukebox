@@ -3,7 +3,6 @@ import Album from './Album'
 
 export default function Albums({albums}) {
   	return (
-  	{console.log(albums)}
   	  <div id='albums' className='row wrap'>
         {albums.map(album => {
           return <Album 
