@@ -5,7 +5,7 @@ export default function Album({ id, name, artist, artwork }){
     <div className='album'>
       <a>
         <img src={ artwork } />
-        <p>{album.name}</p>
+        <p>{name}</p>
         <small>{ artist }</small>
       </a>
     </div>

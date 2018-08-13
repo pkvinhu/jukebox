@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import Sidebar from './Sidebar'
 import AlbumContainer from './AlbumContainer'
 import PlayerContainer from './PlayerContainer'
-import ReactDOM from 'react-dom'
 
 export default class Main extends Component {
   constructor() {
@@ -30,6 +29,7 @@ export default class Main extends Component {
 	    }
 	  }
     ]
+    }
   }
   render () {
     return (
