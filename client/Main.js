@@ -34,10 +34,10 @@ export default class Main extends Component {
   render () {
     return (
      <div id='main' className='row container'>
-
       	<Sidebar />
       	<AlbumContainer albums={this.state.albums}/>
       	<PlayerContainer />
+      	{console.log(albums)}
      </div>
     )
   }
