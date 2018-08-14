@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import Albums from './Albums'
 
-const AlbumContainer = ({albums})=> {
+const AlbumContainer = ({selectAlbum, albums})=> {
   	return (
   	  <div className='container'>
-  	  <Albums albums={albums}/>
+  	  <Albums selectAlbum ={selectAlbum} albums={albums}/>
   	  </div>
   	)
 }

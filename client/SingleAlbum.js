@@ -2,16 +2,19 @@ import React from 'react'
 import SongsContainer from './SongsContainer'
 
 export default function SingleAlbum({selectedAlbum}){
+  console.log(selectedAlbum)
   return (
+  	<div className='container'>
   	<div id='single-album' className='column'>
 	  <div className='album'>
 	    <a>
 	      <img src={selectedAlbum.artworkUrl} />
 	      <p>{selectedAlbum.name}</p>
-	      <small>{selectedAlbum.artist.name}</small>
+	      <small>{selectedAlbum.artist}</small>
         </a>
       </div>
-      <SongsContainer key={selectedAlbum.artist.id} selectedAlbum={selectedAlbum}/>
+      <SongsContainer key={selectedAlbum.id} selectedAlbum={selectedAlbum}/>
+    </div>
     </div>
   )
 }

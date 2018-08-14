@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Album from './Album'
 
-export default function Albums({albums}) {
+export default function Albums({ selectAlbum, albums}) {
   	return (
   	  <div id='albums' className='row wrap'>
         {albums.map(album => {
@@ -11,6 +11,7 @@ export default function Albums({albums}) {
           name={album.name}
           artwork={album.artworkUrl}
           artist={album.artist.name}
+          selectAlbum={selectAlbum}
         />
         })}
       </div>
