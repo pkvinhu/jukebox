@@ -1,4 +1,4 @@
-import React, Component from 'react'
+import React from 'react'
 import Songs from './Songs'
 
 export default function SongsContainer({ key, selectedAlbum }){
@@ -14,7 +14,7 @@ export default function SongsContainer({ key, selectedAlbum }){
           <td>Genre</td>
         </tr>
         {selectedAlbum.songs.map((song)=> {
-		return (<Song 
+		return (<Songs 
 		key={song.id} 
 		artist={selectedAlbum.artist}
 		song={song} 

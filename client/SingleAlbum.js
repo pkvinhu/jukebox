@@ -1,9 +1,9 @@
-import React, Component from 'react'
+import React from 'react'
 import SongsContainer from './SongsContainer'
 
 export default function SingleAlbum({selectedAlbum}){
   return (
-    <div id='single-album' className='column'>
+  	<div id='single-album' className='column'>
 	  <div className='album'>
 	    <a>
 	      <img src={selectedAlbum.artworkUrl} />
