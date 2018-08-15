@@ -13,6 +13,11 @@ export default class Main extends Component {
     selectedAlbum: {}
     };
     this.selectAlbum = this.selectAlbum.bind(this);
+    this.reset = this.reset.bind(this);
+  }
+
+  reset(){
+  	this.setState({ selectedAlbum:{} });
   }
 
   selectAlbum(id){
@@ -22,7 +27,6 @@ export default class Main extends Component {
   	})
   }
 
-
   componentDidMount(){
   	axios.get('/api/albums')
   	.then(response=> {
@@ -31,16 +35,15 @@ export default class Main extends Component {
   }
 
   render() {
-  	let currentPage = this.state.selectedAlbum ?
-  	<SingleAlbum selectedAlbum={this.state.selectedAlbum} />
-  	: <AlbumContainer 
+  	let currentPage = !this.state.selectedAlbum.id ?
+  	<AlbumContainer 
   	selectAlbum = {this.selectAlbum}
-  	albums={this.state.albums
-  	}/>;
-  	
+  	albums={this.state.albums}/> :
+  	<SingleAlbum selectedAlbum={this.state.selectedAlbum} />
+
     return (
      <div id='main' className='row container'>
-      	<Sidebar />
+      	<Sidebar reset={this.reset}/>
       	{currentPage}
       	<PlayerContainer />
      </div>
