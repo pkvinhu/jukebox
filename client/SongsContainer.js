@@ -1,7 +1,7 @@
 import React from 'react'
 import Songs from './Songs'
 
-export default function SongsContainer({ selectedAlbum }){
+export default function SongsContainer({ selectedAlbum, play }){
   
   return (
     <table id='songs'>
@@ -17,7 +17,8 @@ export default function SongsContainer({ selectedAlbum }){
 		return (<Songs 
 		key={song.id} 
 		artist={selectedAlbum.artist}
-		song={song} 
+		song={song}
+		play={play} 
 		/>)
         })}
       </tbody>
