@@ -1,7 +1,7 @@
 import React from 'react'
 import SongsContainer from './SongsContainer'
 
-export default function SingleAlbum({selectedAlbum, play}){
+export default function SingleAlbum({selectedAlbum, play, currentSong }){
   return (
   	<div className='container'>
   	<div id='single-album' className='column'>
@@ -12,7 +12,10 @@ export default function SingleAlbum({selectedAlbum, play}){
 	      <small>{selectedAlbum.artist.name}</small>
         </a>
       </div>
-      <SongsContainer key={selectedAlbum.id} selectedAlbum={selectedAlbum} play={play}/>
+      <SongsContainer key={selectedAlbum.id} 
+      selectedAlbum={selectedAlbum} 
+      play={play}
+      currentSong={currentSong}/>
     </div>
     </div>
   )

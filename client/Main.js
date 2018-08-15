@@ -11,7 +11,7 @@ export default class Main extends Component {
   	this.state = {
     albums: [],
     selectedAlbum: {},
-    currentSong: {}
+    currentSong: null
     };
     this.selectAlbum = this.selectAlbum.bind(this);
     this.reset = this.reset.bind(this);
@@ -23,8 +23,7 @@ export default class Main extends Component {
 	audio.src = link;
 	audio.load();
 	audio.play();
-	this.setState({currentSong:song});
-	console.log(this.state.currentSong)
+	this.setState({currentSong:song.id})
   }
 
   reset(){
@@ -51,7 +50,8 @@ export default class Main extends Component {
   	selectAlbum = {this.selectAlbum}
   	albums={this.state.albums}/> :
   	<SingleAlbum selectedAlbum={this.state.selectedAlbum} 
-  	play={this.play} />
+  	play={this.play}
+  	currentSong={this.state.currentSong} />
 
     return (
      <div id='main' className='row container'>
