@@ -11,19 +11,41 @@ export default class Main extends Component {
   	this.state = {
     albums: [],
     selectedAlbum: {},
-    currentSong: null
+    currentSong: null,
+    currentAudio: {url:'', play: false}
     };
     this.selectAlbum = this.selectAlbum.bind(this);
     this.reset = this.reset.bind(this);
     this.play = this.play.bind(this);
+    // this.isPlaying = this.isPlaying.bind(this);
   }
 
-  play(song, link){
-  	const audio = document.createElement('audio');
-	audio.src = link;
-	audio.load();
-	audio.play();
-	this.setState({currentSong:song.id})
+  // isPlaying() {
+  // 	console.log(this.state.currentSong);
+  // 	return this.state.currentSong;
+  // }
+
+  async play(song, link){
+  	const audio = await document.createElement('audio');
+  	// let music = this.state.currentAudio;
+  	audio.src = link;
+  	// if(music.url === null && music.play === false){
+	  audio.load();
+	  audio.play();
+	  this.setState({
+		currentSong:song.id,
+		currentAudio:{ url:link, play:true }
+	  })
+  	// else if(music.url && music.play===false) {
+  	//   audio.load();
+  	//   audio.play();
+  	//   this.setState({ currentAudio: { url: link, play: true } })
+  	// }
+  	// else if(music.play===true) {
+  	//   audio.pause();
+  	// }
+  	
+	
   }
 
   reset(){
@@ -57,7 +79,7 @@ export default class Main extends Component {
      <div id='main' className='row container'>
       	<Sidebar reset={this.reset}/>
       	{currentPage}
-      	<PlayerContainer />
+      	{!this.state.currentSong ? <PlayerContainer /> : ''}
      </div>
     )
   }
